@@ -4,9 +4,8 @@ Feature: Je souhaite verifier la page de connexion
 
   @authentification-valid
   Scenario: Je souhaite verifier la page de connexion
-    Given Je me connecte surl application nopeCommerce
+    Given Je me connecte sur l application nopeCommerce
     When Je saisie l email "admin@yourstore.com"
     And Je saisie le mot de passe "admin"
     And Je clique sur le bouton LOGIN
     Then Je me redirige vers la page Home
-   
