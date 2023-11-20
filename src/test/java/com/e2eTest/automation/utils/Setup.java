@@ -1,5 +1,6 @@
 package com.e2eTest.automation.utils;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 
 import org.apache.logging.log4j.LogManager;
@@ -17,24 +18,24 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
 public class Setup {
-	
+
 	private static WebDriver driver;
 	private static final Logger LOGGER = (Logger) LogManager.getLogger(Setup.class.getName());
 	/**
 	 * This method is used to open browser. This method is called before the
 	 * invocation of each test method in the given class. In this method we need to
 	 * pass browser name which will invoke the respective driver.
-	 * 
+	 *
 	 * @throws MalformedURLException the malformed URL exception
 	 * @Before Methods annotated with @Before will execute before every scenario.
 	 */
-	
+
 	@Before
-	
+
 	public void setWebDriver(Scenario scenario) {
-		
+
 		LOGGER.info("Scenario:" + scenario.getName()+ "- started");
-		
+
 	String browser = System.getProperty("browser");
 	if (browser == null) {
 		browser = "chrome";
@@ -58,7 +59,7 @@ public class Setup {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		break;
 	case "edge":
-		
+
 		driver = new EdgeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
@@ -66,9 +67,9 @@ public class Setup {
 		break;
 		default:
 			throw new IllegalArgumentException("Browser \"" + browser + "\" is not supported.");
-		
+
 	}
-		
+
 	}
 	/*GETTER*/
 	public static WebDriver getDriver() {
@@ -76,10 +77,10 @@ public class Setup {
 	}
 
 	public static Logger getLogger() {
-	return LOGGER;	
+	return LOGGER;
 	}
-	
-	
+
+
 }
 
 

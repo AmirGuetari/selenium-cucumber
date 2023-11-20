@@ -1,5 +1,11 @@
 package com.e2eTest.automation.utils;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.time.Duration;
 import java.util.Base64;
@@ -49,7 +55,7 @@ public class SeleniumUtils extends BasePage {
 
 	/**
 	 * methode Locator value : to locate web element.
-	 * 
+	 *
 	 * @param locatorTpye String locators
 	 * @param value       the locator value
 	 * @return byLocator
@@ -240,7 +246,7 @@ public class SeleniumUtils extends BasePage {
 
 	/**
 	 * This method is used to click on button.
-	 * 
+	 *
 	 * @param locatorType type of locators
 	 * @param value       the locator value
 	 */
@@ -258,7 +264,7 @@ public class SeleniumUtils extends BasePage {
 
 	/**
 	 * This method is used to enter the text by using sendkeys method.
-	 * 
+	 *
 	 * @param locatorType that can be id / name / any other locator
 	 * @param value       the locator value
 	 * @param text        the data that you want to pass into the text field
@@ -341,7 +347,10 @@ public class SeleniumUtils extends BasePage {
 		driver.switchTo().frame(iframeId);
 		return driver.switchTo().activeElement();
 	}
-
+	public WebElement switchToNewWindow1(WebDriver driver, String targetLocator ) {
+		driver.switchTo().toString();
+		return driver.switchTo().activeElement();
+	}
 	/**
 	 * methode Check radio.
 	 *
@@ -468,6 +477,45 @@ public class SeleniumUtils extends BasePage {
 	public void dragAndDrop(WebElement from, WebElement to) {
 		Actions act = new Actions(Setup.getDriver());
 		act.dragAndDrop(from, to).perform();
+	}
+
+    /**
+     * methode Upload file with robot.
+     *
+     * @param imagePath path of the file
+     */
+    public void uploadFile(String imagePath)
+    {
+
+        StringSelection stringSelection = new StringSelection(imagePath);
+        Clipboard clipBoard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipBoard.setContents(stringSelection, null);
+
+        Robot robot = null;
+        try
+        {
+            robot = new Robot();
+        }
+        catch (AWTException e)
+        {
+        	LOGGER.info(e);
+        }
+
+        robot.delay(250);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.delay(150);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+    }
+
+	public void clearField(String string) {
+
+
 	}
 
 }

@@ -11,7 +11,7 @@ public class TearDown {
 	/**
 	 * This method is used to close browser. This method is called after the
 	 * invocation of each test method in given class.
-	 * 
+	 *
 	 * @After Methods annotated with @After execute after every scenario.
 	 */
 	@After

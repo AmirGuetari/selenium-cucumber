@@ -13,7 +13,7 @@ public class BasePage {
 
 	/**
 	 * Instanciation de base page.
-	 * 
+	 *
 	 * @param driver
 	 */
 	public BasePage(WebDriver driver) {
@@ -23,5 +23,5 @@ public class BasePage {
 	}
 
 }
-		
-	
+
+

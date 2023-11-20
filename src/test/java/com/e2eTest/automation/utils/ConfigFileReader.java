@@ -46,7 +46,7 @@ public class ConfigFileReader {
 
 	/**
 	 * Accesseur de l'attribut param.
-	 * 
+	 *
 	 * @param adress application param
 	 * @return application param
 	 */

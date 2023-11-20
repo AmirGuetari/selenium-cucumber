@@ -8,29 +8,27 @@ import com.e2eTest.automation.utils.BasePage;
 import com.e2eTest.automation.utils.Setup;
 
 public class AuthentificationPage extends BasePage {
-	
-	/* Retrieve web element */
+
+	/* Retrieve web elements */
 	@FindBy(how = How.ID, using = "Email")
 	private static WebElement email;
-	// ou je peux utilisé
-	//@FindBy(id = "Email")
-	//private static WebElement email;
-	
-	/* Retrieve web element */
+
 	@FindBy(how = How.ID, using = "Password")
 	private static WebElement password;
-	
+
 	@FindBy(how = How.XPATH, using = "//button[@type='submit']")
 	private static WebElement btnLogin;
-	
-	
-// de preference le constructeur doit etre aprés les élements
+
+	@FindBy(how = How.XPATH, using = "//h1[normalize-space()='Dashboard']")
+	private static WebElement dashboard;
+
+	@FindBy(how = How.XPATH, using = "//a[normalize-space()='Logout']")
+	private static WebElement btnLogout;
+
 	public AuthentificationPage() {
 		super(Setup.getDriver());
-		
-		
 	}
-	
+
 	public static WebElement getEmail() {
 		return email;
 	}
@@ -43,10 +41,14 @@ public class AuthentificationPage extends BasePage {
 		return btnLogin;
 	}
 
+	public static WebElement getBtnLogout() {
+		return btnLogout;
+	}
+
+	public static WebElement getDashboard() {
+		return dashboard;
+	}
+
+
+
 }
-	
-	
-	
-	
-
-

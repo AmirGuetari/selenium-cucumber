@@ -1,25 +1,17 @@
+@catalog
+Feature: Je souhaite chercher un poduit
+  En tant que utilisateur je souhaite chercher un poduit
 
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
+  Background: 
+    Given Je me connecte sur l application nopCommerce
+    When Je saisis l email "admin@yourstore.com"
+    And Je saisis le password "admin"
+    And Je clique sur le bouton Log In
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
-
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+  @catalog-valid
+  Scenario: Je souhaite chercher un poduit
+    When Je clique sur le menu Catalog
+    And Je clique sur le menu Products
+    And Je saisis le produit "lenovo"
+    And je clique sur le bouton Search
+    Then le resultat de recherche affiche est "Lenovo IdeaCentre 600 All-in-One PC"
