@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions;
 		features = {"src/spec/feature"}, // path of the fonctionnalities (emplacement ou on a cree les fonctionnalités)
 		//glue = {"step_definitions"},
 		plugin = {"pretty", "html:target/cucumber-report.html", "json:target/cucumber.json"}, // repports
-		tags = ("@custumerschangevendor"), // faire appel au tags preparés dans le fichier features (authentification dans ce cas)
+		tags = ("@addanewcategory"), // faire appel au tags preparés dans le fichier features (authentification dans ce cas)
 		monochrome = true, // organize the code
 		snippets = CAMELCASE
 
